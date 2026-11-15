@@ -4,9 +4,10 @@ import csv
 import os
 import sys
 
-def getgp(gr): # Just a match case statement with all GPA values
+
+def getgp(gr):  # Just a match case statement with all GPA values
     match gr.lower():
-        case "a": 
+        case "a":
             return 4
         case "a-":
             return 3.67
@@ -30,6 +31,7 @@ def getgp(gr): # Just a match case statement with all GPA values
             return 0.67
         case "f":
             return 0
+
 
 def main():
     args = sys.argv
@@ -57,7 +59,7 @@ def main():
             for row in reader:
                 classname = row[0]
                 row.pop(0)
-                for s,sem in enumerate(row):
+                for s, sem in enumerate(row):
                     if s == 0:
                         if sem:
                             if weighted:
@@ -98,7 +100,9 @@ def main():
                             tot_gps += g
                         else:
                             pass
-        print(f"GPAs for {fd}: \nS1: {gps1/n1 if n1 else 0}\nS2: {gps2/n2 if n2 else 0}\nTot: {gpsy/ny if ny else 0}")
+        print(
+            f"GPAs for {fd}: \nS1: {gps1/n1 if n1 else 0}\nS2: {gps2/n2 if n2 else 0}\nTot: {gpsy/ny if ny else 0}"
+        )
     print(f"Total GPA: {tot_gps/tot_n if tot_n else 0}")
 
 
